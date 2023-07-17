@@ -30,13 +30,21 @@ export const swcPlugin = (options: SWCOptions = {}, isAsync = true): Plugin => {
           sourceMaps: true,
           sourceFileName: args.path
         };
-        
-        let result: Output;
-        if (isAsync) {
-          result = await transform(code, deepmerge(initialOptions, options));
-        } else {
-          result = transformSync(code, deepmerge(initialOptions, options));
-        }
+
+        let result: Output = {code: ""};
+
+        try {
+          if (isAsync) {
+            result = await transform(code, deepmerge(initialOptions, options));
+          } else {
+            result = transformSync(code, deepmerge(initialOptions, options));
+          }
+        } catch (e) {
+          console.log(e.message);
+          // DO NOTHING
+          // Want the process to stay alive in case of error
+          // Allows dev to fix error without needing to restart esbuild
+        };
 
         return {
           contents: result.code,

@@ -4,7 +4,7 @@
   "description": "ESBuild plugin for using SWC",
   "main": "dist/index.js",
   "scripts": {
-    "start": "tsc -w",
+    "build:watch": "tsc -w",
     "build": "tsc"
   },
   "files": ["dist"],
