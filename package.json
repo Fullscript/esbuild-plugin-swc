@@ -1,23 +1,29 @@
 {
   "name": "esbuild-plugin-swc",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "ESBuild plugin for using SWC",
   "main": "dist/index.js",
   "scripts": {
     "build:watch": "tsc -w",
     "build": "tsc"
   },
-  "files": ["dist"],
-  "keywords": ["esbuild", "swc", "frontend"],
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "esbuild",
+    "swc",
+    "frontend"
+  ],
   "author": "ryan.oconnor@fullscript.com",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^18.13.0",
-    "esbuild": "0.16.3",
-    "typescript": "^5.0.4"
+    "@types/node": "^22.14.0",
+    "esbuild": "0.25.2",
+    "typescript": "^5.8.2"
   },
   "dependencies": {
-    "@swc/core": "1.3.38",
+    "@swc/core": "1.11.16",
     "deepmerge": "^4.3.1"
   }
 }
